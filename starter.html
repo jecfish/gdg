@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--Madatory: Meta tag required by bootstrap-->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Example DevFest George Town 2015 | Supported by Google</title>
+	<link rel="shortcut icon" href="http://devfest2015.gdggeorgetown.com/images/favicon.ico">
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	<!--Mandatory: Bootstrap stylesheet-->
+	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<!--Own stylesheet-->
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<!--AngularJS for simplify data display-->
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+</head>
+<body ng-app="gdgApp" ng-controller="gdgController as gdgCtrl">
+	<section id="banner">
+		<div>
+			<img ng-src="{{gdgCtrl.imageBaseUrl}}asset_header_main.png" alt="banner" />
+			<!-- <img ng-src="{{gdgCtrl.imageBaseUrl}}asset_header_main_xs.png" alt="banner" /> -->
+		</div>
+	</section>
+	<section id="introduction">
+		<h2>Introduction</h2>
+		<p ng-repeat="intro in gdgCtrl.introductions">{{intro.paragraph}}</p>
+	</section>
+	<section id="speakers">
+		<hr>
+		<h2>Speakers</h2>
+		<div ng-repeat="speaker in gdgCtrl.speakers">
+			<div>
+				<img ng-src="{{gdgCtrl.imageBaseUrl + speaker.image}}" alt="{{speaker.name}}" />
+				<h3>{{speaker.name}}</h3>
+				<p>
+					<strong>{{speaker.title}}</strong>
+					<br>
+					<span>{{speaker.company}}</span>
+				</p>
+			</div>
+		</div>
+	</section>
+	<section id="schedule">	
+		<hr>
+		<h2>Schedule</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>
+
+					</th>
+					<th>
+						Main Hall
+					</th>
+					<th>
+						Code Lab A
+					</th>
+					<th>
+						Code Lab B
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="schedule in gdgCtrl.schedules">
+					<td>
+						<strong>{{schedule.time}}</strong>
+					</td>
+					<td ng-class="[{'bg-muted': schedule.main.span}]" colspan="{{schedule.main.span ? 3 : 1}}">
+						<strong>{{schedule.main.title}}</strong>
+						<br>
+						<small>{{schedule.main.speaker}}</small>
+					</td>
+					<td ng-class="[{'bg-muted': schedule.labA == null}]" ng-hide="schedule.main.span">
+						<strong>{{schedule.labA.title}}</strong>
+						<br>
+						<small>{{schedule.labA.speaker}}</small>
+					</td>
+					<td ng-class="[{'bg-muted': schedule.labB == null}]" ng-hide="schedule.main.span">
+						<strong>{{schedule.labB.title}}</strong>
+						<br>
+						<small>{{schedule.labB.speaker}}</small>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+	<section id="location">
+		<hr>
+		<h2>Getting There</h2>
+		<div>
+			<a href="http://maps.google.com/maps?daddr=5.4152971,100.3423572" target="_blank">
+				<img src="https://maps.googleapis.com/maps/api/staticmap?center=5.4152971,100.3423572&amp;zoom=16&amp;size=600x300&amp;maptype=roadmap&amp;markers=color:red%7Clabel:G%7C5.4152971,100.3423572" style="width:100%;border-radius:5px;">
+			</a>
+		</div>
+
+		<div>
+			<address>
+				<strong>Wisma Yeap Chor Ee</strong><br>
+				Lebuh Cina, 10200 George Town, Penang<br>
+				<abbr title="Phone">P:</abbr> (03) 111-8888
+			</address>
+		</div>
+	</section>
+	<section id="partners">
+		<hr>
+		<h2>Partners</h2>
+		<div ng-repeat="partner in gdgCtrl.partners">
+			<a ng-href="{{partner.link}}" target="_blank" rel="nofollow">
+				<img ng-src="{{gdgCtrl.imageBaseUrl + partner.image}}" alt="{{partner.name}}" />
+			</a>
+		</div>
+	</section>
+	<section id="registration">
+		<h2>Register</h2>
+		<form>
+			<div>
+				<div>
+					<label for="inName">Name</label>
+					<input type="text" id="inName" required>
+				</div>
+				<div>
+					<label for="inEmail">Email</label>
+					<input type="email" id="inEmail" required>
+				</div>
+			</div>
+			<div>
+				<div>
+					<label for="inMessage">Comments</label>
+					<textarea id="inMessage" required></textarea>
+				</div>
+			</div>
+
+			<div>
+				<div>
+					<button type="submit">Register</button>
+				</div>
+			</div>
+		</form>
+	</section>
+	<!--Mandatory: JQuery and Bootstrap JS-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+	<!--Own JS files-->
+	<script type="text/javascript" src="/js/main.js"></script>
+</body>
+</html>
