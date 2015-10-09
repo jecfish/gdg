@@ -1,8 +1,8 @@
 angular.module('gdgApp', [])
 .controller('gdgController', function() {
   var gdg = this;
-  gdg.imageBaseUrl = 'http://devfest2015.gdggeorgetown.com/images/';
-    // gdg.imageBaseUrl = './images/'; //local
+  // gdg.imageBaseUrl = 'http://devfest2015.gdggeorgetown.com/images/'; //server
+  gdg.imageBaseUrl = './images/'; //local
   gdg.introductions = [{
     paragraph: 'DevFest is a large community organised annual event with sessions & code labs for developers, students, startups and anyone interested to learn the latest trends and technical knowledge of Google platform, product APIs & open source technologies.'
   }, {

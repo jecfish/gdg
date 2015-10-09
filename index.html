@@ -1,148 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<!--Madatory: Meta tag required by bootstrap-->
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title> Example DevFest George Town 2015 | Supported by Google</title>
-	<link rel="shortcut icon" href="http://devfest2015.gdggeorgetown.com/images/favicon.ico">
-	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-	<!--Mandatory: Bootstrap stylesheet-->
-	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<!--Own stylesheet-->
-	<link rel="stylesheet" type="text/css" href="/css/main.css">
-	<!--AngularJS for simplify data display-->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+  <title>Responsive Web</title>
+  <!-- <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="/css/vendor/bootstrap.min.css">
+  <style media="screen">
+    .box {
+      border: solid 1px;
+      border-radius: 10px;
+      padding: 10px 10px 30px 10px;
+      margin: 20px;
+      background-color: #f2f5f9;
+    }
+  </style>
 </head>
-<body ng-app="gdgApp" ng-controller="gdgController as gdgCtrl">
-	<section id="banner" class="container-fluid">
-		<div class="row">
-			<img ng-src="{{gdgCtrl.imageBaseUrl}}asset_header_main.png" alt="banner" class="img-responsive hidden-xs" />
-			<img ng-src="{{gdgCtrl.imageBaseUrl}}asset_header_main_xs.png" alt="banner" class="img-responsive visible-xs-block" />
-		</div>
-	</section>
-	<section id="introduction" class="container page-section">
-		<h2 class="page-title text-center">Introduction</h2>
-		<p ng-repeat="intro in gdgCtrl.introductions" class="paragraph text-center">{{intro.paragraph}}</p>
-	</section>
-	<section id="speakers" class="container page-section">
-		<hr class="fancy-line">
-		<h2 class="page-title text-center">Speakers</h2>
-		<div ng-repeat="speaker in gdgCtrl.speakers">
-			<div class="col-lg-3 col-sm-6 speaker-card">
-				<img ng-src="{{gdgCtrl.imageBaseUrl + speaker.image}}" alt="{{speaker.name}}" class="img-circle center-block" />
-				<h3 class="text-center">{{speaker.name}}</h3>
-				<p class="text-center">
-					<strong>{{speaker.title}}</strong>
-					<br>
-					<span>{{speaker.company}}</span>
-				</p>
-			</div>
-		</div>
-	</section>
-	<section id="schedule" class="container page-section">
-		<hr class="fancy-line">
-		<h2 class="page-title text-center">Schedule</h2>
-		<table class="table table-bordered">
-			<thead>
-				<tr>
-					<th class="col-sm-1 bg-muted">
-
-					</th>
-					<th class="text-center col-sm-5">
-						Main Hall
-					</th>
-					<th class="text-center col-sm-3">
-						Code Lab A
-					</th>
-					<th class="text-center col-sm-3">
-						Code Lab B
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="schedule in gdgCtrl.schedules">
-					<td class="text-right">
-						<strong>{{schedule.time}}</strong>
-					</td>
-					<td ng-class="['text-center', {'bg-muted': schedule.main.span}]" colspan="{{schedule.main.span ? 3 : 1}}">
-						<strong>{{schedule.main.title}}</strong>
-						<br>
-						<small>{{schedule.main.speaker}}</small>
-					</td>
-					<td ng-class="['text-center', {'bg-muted': schedule.labA == null}]" ng-hide="schedule.main.span">
-						<strong>{{schedule.labA.title}}</strong>
-						<br>
-						<small>{{schedule.labA.speaker}}</small>
-					</td>
-					<td ng-class="['text-center', {'bg-muted': schedule.labB == null}]" ng-hide="schedule.main.span">
-						<strong>{{schedule.labB.title}}</strong>
-						<br>
-						<small>{{schedule.labB.speaker}}</small>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</section>
-	<section id="location" class="container page-section">
-		<hr class="fancy-line">
-		<h2 class="page-title text-center">Getting There</h2>
-		<div class="col-lg-10 col-lg-offset-1 col-md-8 col-md-offset-2 col-xs-12">
-			<a href="http://maps.google.com/maps?daddr=5.4152971,100.3423572" target="_blank">
-				<img src="https://maps.googleapis.com/maps/api/staticmap?center=5.4152971,100.3423572&amp;zoom=16&amp;size=600x300&amp;maptype=roadmap&amp;markers=color:red%7Clabel:G%7C5.4152971,100.3423572" style="width:100%;border-radius:5px;">
-			</a>
-		</div>
-
-		<div class="col-md-12">
-			<address class="text-center">
-				<strong>Wisma Yeap Chor Ee</strong><br>
-				Lebuh Cina, 10200 George Town, Penang<br>
-				<abbr title="Phone">P:</abbr> (03) 111-8888
-			</address>
-		</div>
-	</section>
-	<section id="partners" class="container page-section">
-		<hr class="fancy-line">
-		<h2 class="page-title text-center">Partners</h2>
-		<div ng-repeat="partner in gdgCtrl.partners" class="col-md-4 col-sm-6 col-xs-12">
-			<a ng-href="{{partner.link}}" target="_blank" rel="nofollow">
-				<img ng-src="{{gdgCtrl.imageBaseUrl + partner.image}}" alt="{{partner.name}}" class="img-responsive" />
-			</a>
-		</div>
-	</section>
-	<section id="registration" class="container page-section bg-muted">
-		<h2 class="page-title text-center">Register</h2>
-		<form>
-			<div class="row">
-				<div class="form-group col-sm-offset-1 col-sm-5">
-					<label class="control-label" for="inName">Name</label>
-					<input type="text" class="form-control" id="inName" required>
-				</div>
-				<div class="form-group col-sm-5">
-					<label class="control-label" for="inEmail">Email</label>
-					<input type="email" class="form-control" id="inEmail" required>
-				</div>
-			</div>
-			<div class="row">
-				<div class="form-group form-group col-sm-offset-1 col-sm-10">
-					<label class="control-label" for="inMessage">Comments</label>
-					<textarea class="form-control" id="inMessage" required></textarea>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-sm-1 col-sm-offset-1">
-					<button type="submit" class="btn btn-default">Register</button>
-				</div>
-			</div>
-		</form>
-	</section>
-	<!--Mandatory: JQuery and Bootstrap JS-->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-	<!--Own JS files-->
-	<script src="/js/main.js"></script>
+<body>
+  <div class="container">
+    <div class="box">
+      <h3 class="text-center">Mini Challenge 1: Responsive Box</h3>
+      <p class="text-center lead">Large device: 4 boxes a row, Medium: 2 boxes a row, Small: 1 box a row</p>
+      <div class="text-center">
+        <a href="mini1-starter.html" target="_blank" class="btn btn-info">Start</a>
+        <a href="//codepen.io/chybie/pen/Xmglav" target="_blank" class="btn btn-warning">Playground</a>
+        <a href="mini1.html" target="_blank" class="btn btn-success">Demo</a>
+      </div>
+    </div>
+    <div class="box">
+      <h3 class="text-center">Mini Challenge 2: Responsive Background Image</h3>
+      <p class="text-center lead">Full page image that scale according to device size</p>
+      <div class="text-center">
+        <a href="mini2-starter.html" target="_blank" class="btn btn-info">Start</a>
+        <a href="//codepen.io/chybie/pen/MaoYdg" target="_blank" class="btn btn-warning">Playground</a>
+        <a href="mini2.html" target="_blank" class="btn btn-success">Demo</a>
+      </div>
+    </div>
+    <div class="box">
+      <h3 class="text-center">Final Challenge: Responsive GDG DevFest GeorgeTown 2015 Website</h3>
+      <p class="text-center lead">Develop the responsive GDG DevFest GeorgeTown 2015 <a href="devfest2015.gdggeorgetown.com">website</a> with <a href="http://getbootstrap.com">Bootstrap</a></p>
+      <div class="text-center">
+        <a href="gdg-starter.html" target="_blank" class="btn btn-info">Start</a>
+        <a href="//codepen.io/chybie/pen/Oygbde" target="_blank" class="btn btn-warning">Playground</a>
+        <a href="gdg.html" target="_blank" class="btn btn-success">Demo</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

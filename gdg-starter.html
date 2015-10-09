@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="gdgApp" ng-controller="gdgController as gdgCtrl">
 <head>
 	<!--Madatory: Meta tag required by bootstrap-->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title> Example DevFest George Town 2015 | Supported by Google</title>
-	<link rel="shortcut icon" href="http://devfest2015.gdggeorgetown.com/images/favicon.ico">
-	<link href='//fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	<title> GDG Starter</title>
+	<link rel="shortcut icon" ng-href="{{gdgCtrl.imageBaseUrl}}favicon.ico">
+	<!-- <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'> -->
 	<!--Mandatory: Bootstrap stylesheet-->
-	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="/css/vendor/bootstrap.min.css">
 	<!--Own stylesheet-->
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
 	<!--AngularJS for simplify data display-->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script> -->
+	<script src="/js/vendor/angular.min.js"></script>
 </head>
-<body ng-app="gdgApp" ng-controller="gdgController as gdgCtrl">
+<body>
 	<section id="banner">
 		<div>
 			<img ng-src="{{gdgCtrl.imageBaseUrl}}asset_header_main.png" alt="banner" />
@@ -139,10 +141,11 @@
 		</form>
 	</section>
 	<!--Mandatory: JQuery and Bootstrap JS-->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+	<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+	<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+	<script src="/js/vendor/jquery.min.js" charset="utf-8"></script>
+	<script src="/js/vendor/bootstrap.min.js" charset="utf-8"></script>
 	<!--Own JS files-->
-	<script type="text/javascript" src="/js/main.js"></script>
+	<script src="/js/main.js"></script>
 </body>
 </html>
