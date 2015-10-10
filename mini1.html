@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mini 1</title>
+  <style>
+  body {
+    font-size: 0px; /*counter div inline block spacing behaviour*/
+    margin: 0;
+  }
+
+  .box {
+    display: inline-block;
+    height: 200px;
+    min-width: 25%;
+    transition:all 1s ease-in-out;
+  }
+
+  .bg-red {
+    background-color: red;
+  }
+
+  .bg-yellow {
+    background-color: yellow;
+  }
+
+  .bg-blue {
+    background-color: blue;
+  }
+
+  .bg-green {
+    background-color: green;
+  }
+
+  /* Small (Phone) */
+  @media only screen and (min-width : 320px) {
+    .box{
+      width: 100%;
+    }
+  }
+
+  /* Medium (Tablets) */
+  @media only screen and (min-width : 768px) {
+    .box{
+      width: 50%;
+    }
+  }
+
+  /* Large (Desktop) */
+  @media only screen and (min-width : 992px) {
+    .box{
+      width: 25%;
+    }
+  }
+  </style>
+</head>
+<body>
+  <div class="box bg-red"></div>
+  <div class="box bg-yellow"></div>
+  <div class="box bg-blue"></div>
+  <div class="box bg-green"></div>
+</body>
+</html>
