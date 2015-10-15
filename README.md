@@ -2,5 +2,5 @@
 Mini challenges to help you familiarize with respondsive web.
 Download it and you are good to go!
 
-Go to ([netlify.gdg.com]) to view the demo, presentation slides, codepen playground and get started guide.
+Go to [gdg.netlify.com](//gdg.netlify.com) to view the demo, presentation slides, codepen playground and get started guide.
 
